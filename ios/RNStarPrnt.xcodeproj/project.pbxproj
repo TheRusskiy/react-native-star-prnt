@@ -218,7 +218,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/Frameworks",
+					"$(SRCROOT)/Frameworks/debug",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/debug",
 				);
@@ -239,7 +239,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/Frameworks",
+					"$(SRCROOT)/Frameworks/release",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/release",
 				);
