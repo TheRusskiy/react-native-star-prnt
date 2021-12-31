@@ -218,9 +218,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/Frameworks/debug",
+					"$(SRCROOT)/libs",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/debug",
+					"$(PROJECT_DIR)/libs",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -239,9 +239,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/Frameworks/release",
+					"$(SRCROOT)/libs",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/release",
+					"$(PROJECT_DIR)/libs",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
