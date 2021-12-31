@@ -10,7 +10,7 @@
 
 #import <StarIO/SMBluetoothManager.h>
 
-#import "StarIoExt.h"
+#import <StarIO_Extension/StarIoExt.h>
 
 @interface SMBluetoothManagerFactory : NSObject
 

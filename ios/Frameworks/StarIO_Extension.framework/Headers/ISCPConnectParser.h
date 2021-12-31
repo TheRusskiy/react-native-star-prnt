@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Star Micronics. All rights reserved.
 //
 
-#import "ISCPParser.h"
+#import <StarIO_Extension/ISCPParser.h>
 
 @interface ISCPConnectParser : ISCPParser
 

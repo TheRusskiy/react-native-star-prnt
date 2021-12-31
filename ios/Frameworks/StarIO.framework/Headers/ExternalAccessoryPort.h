@@ -10,17 +10,17 @@
 #import <ExternalAccessory/ExternalAccessory.h>
 
 #ifdef TARGET_OS_IPHONE
-#ifdef BUILDING_STARIO
-#include <starmicronics/StarIOPort.h>
+  #ifdef BUILDING_STARIO
+    #include <starmicronics/StarIOPort.h>
+    #import "enum.h"
+  #else
+    #include <StarIO/starmicronics/StarIOPort.h>
+    #import <StarIO/enum.h>
+  #endif
 #else
-#include <StarIO/starmicronics/StarIOPort.h>
-
-#endif
-#else
-#include <starmicronics/StarIOPort.h>
+  #include <starmicronics/StarIOPort.h>
 #endif
 
-#import "enum.h"
 
 @interface ExternalAccessoryPort : NSObject<NSStreamDelegate> {
     NSString *portName_;
@@ -35,6 +35,7 @@
 
 @property(readonly, getter = isConnected) BOOL connected;
 @property(readwrite) u_int32_t endCheckedBlockTimeoutMillis;
+@property(readwrite) u_int32_t holdPrintTimeoutMillis;
 @property(assign, nonatomic) NSInteger dataTimeoutSeconds;
 
 @property(retain, readonly) NSString *firmwareInformation;
@@ -44,10 +45,18 @@
 @property(retain) NSThread *thread71;
 @property(retain) NSNumber *result71;
 
-@property(assign, readonly) float secShortInterval;
-@property(assign, readonly) float secInterval;
+@property(assign, readonly) float secInterval1;
+@property(assign, readonly) float secInterval2;
 
-- (id)initWithPortName:(NSString *)portName portSettings:(NSString *)portSettings timeout:(u_int32_t)timeout emulation:(SMEmulation)emulation;
+@property(retain, nonatomic) NSString *name;
+@property(retain, nonatomic) NSString *serialNumber;
+
+@property(nonatomic) NSUInteger connectionID;
+
+- (id)initWithPortName:(NSString *)portName
+          portSettings:(NSString *)portSettings
+               timeout:(u_int32_t)timeout
+             emulation:(SMEmulation)emulation;
 - (BOOL)open;
 - (int)write:(NSData *)data;
 - (NSData *)read:(NSUInteger)bytesToRead;
@@ -76,7 +85,7 @@
  *  @return     正常終了した場合は新しいendCheckedBlockTimeoutMillis[ミリ秒], 無効の場合は0, エラー発生時は-1を返す。
  */
 - (NSInteger)retrieveButtonSecurityTimeout;
-- (BOOL)beginCheckedBlock:(StarPrinterStatus_2 *)starPrinterStatus level:(u_int32_t)level;
+- (BOOL)beginCheckedBlock:(StarPrinterStatus_2 *)starPrinterStatus level:(u_int32_t)level resultCode:(NSInteger *)resultCode;
 - (BOOL)endCheckedBlock:(StarPrinterStatus_2 *)starPrinterStatus level:(u_int32_t)level;
 /*!
  *  Bluetoothの接続状況を返す。
