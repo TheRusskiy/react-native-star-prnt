@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author             = { "author" => "author@domain.cn" }
   s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/therusskiy/react-native-star-prnt.git", :tag => "master" }
-  s.source_files  = "ios/**/*.{h,m}"
+  s.source_files  = "ios/**/*.{h,m,swift}"
   s.requires_arc = true
 
 
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
     'EXCLUDED_SOURCE_FILE_NAMES[sdk=iphoneos*]' => '$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/libs/StarIO.framework/ios-arm64_x86_64-simulator/*.* $(SRCROOT)/../../node_modules/react-native-star-prnt/ios/libs/StarIO_Extension.framework/ios-arm64_x86_64-simulator/*.*',
     'FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]' => '$(SRCROOT)/libs/** $(SRCROOT)/../../node_modules/react-native-star-prnt/ios/libs $(SRCROOT)/../../node_modules/react-native-star-prnt/ios/libs/StarIO.framework/ios-arm64 $(SRCROOT)/../../node_modules/react-native-star-prnt/ios/libs/StarIO_Extension.framework/ios-arm64',
   }
-  s.vendored_frameworks = 'ios/Frameworks/StarIO.framework', 'ios/Frameworks/StarIO_Extension.framework'
+  s.vendored_frameworks = 'ios/libs/StarIO.framework', 'ios/libs/StarIO_Extension.framework'
 
   #s.dependency "others"
 
