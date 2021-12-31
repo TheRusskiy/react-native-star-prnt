@@ -217,11 +217,32 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/libs",
-					"$(inherited)",
-					"$(PROJECT_DIR)/libs",
-				);
+			    "EXCLUDED_ARCHS[sdk=iphoneos*]" = x86_64;
+                "EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+                "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphoneos*]" = (
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO.framework/ios-arm64_x86_64-simulator/*.*",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO_Extension.framework/ios-arm64_x86_64-simulator/*.*",
+                );
+                "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphonesimulator*]" = (
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO.framework/ios-arm64/*.*",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO_Extension.framework/ios-arm64/*.*",
+                );
+                FRAMEWORK_SEARCH_PATHS = (
+                    "$(SRCROOT)/Frameworks/**",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/**",
+                );
+                "FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
+                    "$(SRCROOT)/Frameworks/**",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO.framework/ios-arm64",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO_Extension.framework/ios-arm64",
+                );
+                "FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+                    "$(SRCROOT)/Frameworks/**",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO.framework/ios-arm64_x86_64-simulator",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO_Extension.framework/ios-arm64_x86_64-simulator",
+                );
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -238,11 +259,17 @@
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/libs",
-					"$(inherited)",
-					"$(PROJECT_DIR)/libs",
-				);
+                EXCLUDED_ARCHS = x86_64;
+                EXCLUDED_SOURCE_FILE_NAMES = (
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO.framework/ios-arm64_x86_64-simulator/*.*",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO_Extension.framework/ios-arm64_x86_64-simulator/*.*",
+                );
+                FRAMEWORK_SEARCH_PATHS = (
+                    "$(SRCROOT)/Frameworks/**",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO.framework/ios-arm64",
+                    "$(SRCROOT)/../../node_modules/react-native-star-prnt/ios/Frameworks/StarIO_Extension.framework/ios-arm64",
+                );
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
