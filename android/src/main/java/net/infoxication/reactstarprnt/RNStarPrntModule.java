@@ -49,6 +49,7 @@ import com.starmicronics.stario.PortInfo;
 import com.starmicronics.stario.StarIOPort;
 import com.starmicronics.stario.StarIOPortException;
 import com.starmicronics.stario.StarPrinterStatus;
+import com.starmicronics.starioextension.ConnectionCallback;
 import com.starmicronics.starioextension.IConnectionCallback;
 import com.starmicronics.starioextension.StarIoExt;
 import com.starmicronics.starioextension.StarIoExt.Emulation;
@@ -164,7 +165,7 @@ public class RNStarPrntModule extends ReactContextBaseJavaModule {
 
     String portSettings = getPortSettingsOption(emulation);
     if (starIoExtManager != null && starIoExtManager.getPort() != null) {
-      starIoExtManager.disconnect(null);
+      starIoExtManager.disconnect((ConnectionCallback) null);
     }
     starIoExtManager = new StarIoExtManager(hasBarcodeReader ? StarIoExtManager.Type.WithBarcodeReader : StarIoExtManager.Type.Standard, portName, portSettings, 10000, context);
     starIoExtManager.setListener(starIoExtManagerListener);
